@@ -1,16 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.spellchecker.FXMLController">
    <top>
-      <Label text="Lab03_SpellChecker" BorderPane.alignment="CENTER">
+      <Label text="Controllo Ortografico" textFill="#2c0fe8" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets top="20.0" />
          </BorderPane.margin>
+         <font>
+            <Font name="Comic Sans MS Bold" size="28.0" />
+         </font>
       </Label>
    </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets top="5.0" />
+         </BorderPane.margin>
+         <children>
+            <HBox prefHeight="47.0" prefWidth="378.0">
+               <children>
+                  <Label text="Select the Language">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" right="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBox fx:id="comboLingua" onAction="#doActivation" prefWidth="150.0">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </ComboBox>
+               </children>
+            </HBox>
+            <TextArea fx:id="txtAreaInserimento" prefHeight="200.0" prefWidth="200.0">
+               <VBox.margin>
+                  <Insets bottom="3.0" left="3.0" right="3.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets right="3.0" top="3.0" />
+               </padding></TextArea>
+            <Button fx:id="btnCheckLanguage" mnemonicParsing="false" onAction="#doSpellCheck" text="Check Language ">
+               <VBox.margin>
+                  <Insets left="225.0" />
+               </VBox.margin>
+            </Button>
+            <TextArea fx:id="txtAreaRisultato" prefHeight="200.0" prefWidth="200.0">
+               <padding>
+                  <Insets right="3.0" top="3.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </VBox.margin>
+            </TextArea>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="labelErrori" prefHeight="21.0" prefWidth="345.0" text="Numero errori" textFill="#dd1010">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <Button fx:id="btnClearAll" mnemonicParsing="false" onAction="#doClearText" prefHeight="31.0" prefWidth="135.0" text="Clear All">
+                     <HBox.margin>
+                        <Insets left="10.0" top="3.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <TextField fx:id="textFieldTempoEsecuzione" prefHeight="22.0" prefWidth="434.0" promptText="Tempo di Completamento">
+               <VBox.margin>
+                  <Insets bottom="3.0" top="3.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="2.0" />
+               </padding>
+            </TextField>
+         </children>
+      </VBox>
+   </center>
 </BorderPane>
